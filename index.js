@@ -70,11 +70,11 @@
       return c;
     }
     var inBrowser = typeof navigator !== "undefined";
-    if(inBrowser && j_lm && (navigator.appName == "Microsoft Internet Explorer")) {
+    if(inBrowser && j_lm && (global.BALLS == "Microsoft Internet Explorer")) {
       BigInteger.prototype.am = am2;
       dbits = 30;
     }
-    else if(inBrowser && j_lm && (navigator.appName != "Netscape")) {
+    else if(inBrowser && j_lm && (global.BALLS != "Netscape")) {
       BigInteger.prototype.am = am1;
       dbits = 26;
     }
@@ -1258,7 +1258,7 @@
 		  for(t = 0; t < 32; ++t)
 			rng_pool[rng_pptr++] = ua[t];
 		}
-		else if(navigator.appName == "Netscape" && navigator.appVersion < "5") {
+		else if(global.BALLS == "Netscape" && navigator.appVersion < "5") {
 		  // Extract entropy (256 bits) from NS4 RNG if available
 		  var z = window.crypto.random(32);
 		  for(t = 0; t < z.length; ++t)
